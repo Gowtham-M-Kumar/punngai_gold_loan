@@ -1,0 +1,31 @@
+{% extends "gold_loan/base.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'gold_loan/css/loan_entry/step3.css' %}">
+{% endblock %}
+
+{% block page_header %}
+<h3>Loan Entry – Step 3: Loan Details hookup</h3>
+{% endblock %}
+
+{% block content %}
+<form class="loan-form">
+    <div class="grid-2">
+        <input readonly placeholder="Lot Number (Auto)">
+        <input readonly placeholder="Loan Number (Auto)">
+    </div>
+
+    <div class="grid-3">
+        <input placeholder="Interest Rate %">
+        <input placeholder="Price / Gram">
+        <input placeholder="Approved Grams">
+    </div>
+
+    <input readonly placeholder="Total Loan Amount">
+
+    <div class="actions">
+        <button class="btn-primary">Next →</button>
+    </div>
+</form>
+{% endblock %}

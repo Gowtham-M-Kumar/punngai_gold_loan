@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Gold Loan{% endblock %}</title>
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="{% static 'gold_loan/css/base.css' %}">
+    
+
+    {% block head %}{% endblock %}
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="app-header">
+    <div class="header-left">
+        <h2>Gold Loan</h2>
+    </div>
+
+    <div class="header-right">
+        <!-- later: user name, logout -->
+        <span>Admin</span>
+    </div>
+</header>
+
+<!-- ===== BODY WRAPPER ===== -->
+<div class="app-body">
+
+    <!-- ===== SIDEBAR ===== -->
+        <aside class="sidebar">
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="/"
+                    class="{% if request.path == '/' %}active{% endif %}">
+                    Dashboard
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/loan/"
+                    class="{% if request.path|slice:':6' == '/loan/' %}active{% endif %}">
+                    New Loan
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/payment/"
+                    class="{% if request.path|slice:':9' == '/payment/' %}active{% endif %}">
+                    Payments
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/close/"
+                    class="{% if request.path|slice:':7' == '/close/' %}active{% endif %}">
+                    Closed Loans
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content">
+
+        <!-- Page Header -->
+        <div class="page-header">
+            {% block page_header %}
+            <h3>Page</h3>
+            {% endblock %}
+        </div>
+
+        <!-- Page Content -->
+        <div class="page-content">
+            {% block content %}{% endblock %}
+        </div>
+
+    </main>
+</div>
+
+<script src="{% static 'gold_loan/js/main.js' %}"></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

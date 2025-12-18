@@ -1,0 +1,62 @@
+{% extends "gold_loan/base.html" %}
+{% load static %}
+
+{% block title %}Loan Entry – Step 1{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'gold_loan/css/loan_entry/step1.css' %}">
+{% endblock %}
+
+{% block page_header %}
+<h3>Loan Entry – Step 1: Personal Details</h3>
+{% endblock %}
+
+{% block content %}
+<form method="post" enctype="multipart/form-data" class="loan-form">
+    {% csrf_token %}
+
+    <!-- EXISTING CUSTOMER -->
+    <div class="card">
+        <h4>Select Existing Customer</h4>
+        <input type="text" placeholder="Search by name / mobile / customer ID">
+    </div>
+
+    <div class="divider">OR</div>
+
+    <!-- NEW CUSTOMER -->
+    <div class="card">
+        <h4>Add New Customer</h4>
+
+        <div class="grid-2">
+            <input type="text" name="name" placeholder="Customer Name *" required>
+            <input type="text" name="mobile_primary" placeholder="Mobile Number *" required pattern="[0-9]{10}">
+        </div>
+
+        <div class="grid-2">
+            <input type="text" name="mobile_secondary" placeholder="Alternate Mobile">
+            <input type="email" name="email" placeholder="Email">
+        </div>
+
+        <textarea name="address" placeholder="Address *" required></textarea>
+
+        <div class="grid-2">
+            <input type="text" name="aadhaar_number" placeholder="Aadhaar Number *" required pattern="[0-9]{12}">
+            <input type="text" name="profession" placeholder="Profession *" required>
+        </div>
+
+        <div class="grid-2">
+            <input type="text" name="nominee_name" placeholder="Nominee Name *" required>
+            <input type="text" name="nominee_mobile" placeholder="Nominee Mobile *" required pattern="[0-9]{10}">
+        </div>
+
+        <label class="file-box">
+            Upload / Take Photo *
+            <input type="file" name="customer_photo" accept="image/*" required>
+        </label>
+    </div>
+
+    <div class="actions">
+        <button type="submit" class="btn-primary">Next →</button>
+    </div>
+</form>
+{% endblock %}

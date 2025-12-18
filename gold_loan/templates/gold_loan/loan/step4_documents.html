@@ -1,0 +1,32 @@
+{% extends "gold_loan/base.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'gold_loan/css/loan_entry/step4.css' %}">
+{% endblock %}
+
+{% block page_header %}
+<h3>Loan Entry – Step 4: Documents</h3>
+{% endblock %}
+
+{% block content %}
+<form class="loan-form" enctype="multipart/form-data">
+    <div class="card">
+        <select>
+            <option>Aadhaar</option>
+            <option>PAN</option>
+            <option>Photo</option>
+            <option>Other</option>
+        </select>
+
+        <input placeholder="Other Document Name">
+        <input type="file" accept="image/*">
+    </div>
+
+    <button class="btn-secondary">+ Add Document</button>
+
+    <div class="actions">
+        <button class="btn-primary">Next →</button>
+    </div>
+</form>
+{% endblock %}

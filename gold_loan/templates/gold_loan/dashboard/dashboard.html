@@ -1,0 +1,20 @@
+{% extends "gold_loan/base.html" %}
+{% load static %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'gold_loan/css/dashboard/dashboard.css' %}">
+{% endblock %}
+
+{% block page_header %}
+<h3>Dashboard</h3>
+{% endblock %}
+
+{% block content %}
+<div class="dashboard-cards">
+    <div class="card">Total Loans</div>
+    <div class="card">Active Loans</div>
+    <div class="card">Closed Loans</div>
+</div>
+{% endblock %}

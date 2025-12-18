@@ -1,0 +1,21 @@
+{% extends "gold_loan/base.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'gold_loan/css/loan_entry/step5.css' %}">
+{% endblock %}
+
+{% block page_header %}
+<h3>OTP Verification</h3>
+{% endblock %}
+
+{% block content %}
+<form class="loan-form otp-box">
+    <p>Enter OTP sent to admin and customer</p>
+
+    <input type="text" maxlength="6" placeholder="Enter OTP">
+
+    <button class="btn-primary">Verify & Save</button>
+    <button class="btn-secondary">Resend OTP</button>
+</form>
+{% endblock %}
